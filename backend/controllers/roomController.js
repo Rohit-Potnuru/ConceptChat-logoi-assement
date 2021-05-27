@@ -57,12 +57,13 @@ const confirmMember = asyncHandler(
         const userId = req.params.userId
         const joinStatus = req.body.joinStatus
         
-        console.log(userId)
+        console.log(req.body)
         const membershipCondition = {
             "roomId": roomId,
             "userId": userId
         }
         const update = {
+            "displayName": req.body.displayName,
             "roomId": roomId,
             "userId": userId,
             "type": "PRIVATE"

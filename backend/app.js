@@ -66,14 +66,11 @@ io.on('connection', socket=> {
     socket.on('join', ({username, roomId}) => {
         console.log(`roomID for join connection ${roomId}`);
         socket.join(roomId);
-        
         getAllMessages(roomId).then(result => {io.emit('recieve-join', result)} )
-                
     });
 
     socket.on('send-message', ({roomId, messageData}) => {
         console.log(`for send-message roomId:${roomId}, msg:${messageData.msg}, username:${messageData.userId}`);
-
         postMessage(roomId, messageData).then(result => {
             socket.broadcast.to(roomId).emit('recieve-message', {message:messageData});
             io.emit('load-message',{message:messageData});

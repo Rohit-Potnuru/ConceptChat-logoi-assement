@@ -11,7 +11,7 @@ router
 .put(confirmMember)
 
 router
-.route('/Rooms/:roomId/Users/:type')
+.route('/Rooms/:roomId/Users/')
 .post(addMember)
 
 router

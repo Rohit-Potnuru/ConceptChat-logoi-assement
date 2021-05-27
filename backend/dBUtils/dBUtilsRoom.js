@@ -31,12 +31,11 @@ const addMemberdB = AsyncHandler(
 const updateMemberdB = AsyncHandler(
     async (membershipCondition, update) => {
         var resMembership = await membershipSchema.findOneAndReplace(membershipCondition, update)
-
         if(resMembership){
             return resMembership;
         }
         else {
-            console.log(err);
+            
             throw new Error("ERR: Error Failed to update member in Membership")
         }
     })
