@@ -5,7 +5,7 @@ import axios from 'axios';
 const IP = "localhost"
 const URL = `http://${IP}:8085`
 
-const DashBlock = ({setChat, chatRoomData}) => {
+const DashBlock = ({userId, setChat, chatRoomData}) => {
    const [chatRoomD,setChatRoomD] = useState(chatRoomData)
    console.log("Donseenu")
     useEffect(()=>{
@@ -23,7 +23,8 @@ const DashBlock = ({setChat, chatRoomData}) => {
         }
     }
     const funct = (chatRoom)=>{
-      axios.post(`http://${URL}/api/rooms/Rooms/${chatRoom.roomId}/Users/${chatRoom._id}`).tthen(res=>{
+      console.log(chatRoom, userId)
+      axios.put(`${URL}/api/rooms/Rooms/${chatRoom.roomId}/Users/${userId}`, {"joinStatus": 1, "displayName": chatRoom.displayName}).then(res=>{
         setChat(chatRoom)
       })
       

@@ -59,15 +59,15 @@ function Dashboard({setChat, userId, username}) {
             </h1>
             <h2>Public Rooms</h2>
             {publicRooms.map((currentChatRoom)=>{
-                 return <DashBlock setChat={setChat} chatRoomData={currentChatRoom}/>
+                 return <DashBlock userId={userId} setChat={setChat} chatRoomData={currentChatRoom}/>
             })}
             <h2>Private Rooms</h2>
             {privateRooms.map((currentChatRoom)=>{
-                 return <DashBlock setChat={setChat} chatRoomData={currentChatRoom}/>
+                 return <DashBlock userId={userId} setChat={setChat} chatRoomData={currentChatRoom}/>
             })}
             <h2>Pending Approval Rooms</h2>
             {unApprovedRooms.map((currentChatRoom)=>{
-                 return <DashBlock setChat={setChat} chatRoomData={currentChatRoom}/>
+                 return <DashBlock userId={userId} setChat={setChat} chatRoomData={currentChatRoom}/>
             })}
         </div>
     )
